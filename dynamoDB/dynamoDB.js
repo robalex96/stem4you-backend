@@ -3,7 +3,7 @@ const { response } = require('../server/response');
 const dynamoDB = new aws.DynamoDB.DocumentClient({region: 'us-east-1'});
 
 const readTable = (tableName) => {
-    var parameters = {
+    const parameters = {
         TableName: tableName
     };
 
@@ -20,7 +20,7 @@ const readTable = (tableName) => {
 };
 
 const readItem = (tableName, id) => {
-    var parameters = {
+    const parameters = {
         TableName: tableName,
         Key: {
             id: id
@@ -39,14 +39,9 @@ const readItem = (tableName, id) => {
     });
 };
 
-const createItem = (tableName, {id, role, name, lastName}) => {
-    var parameters = {
-        Item: {
-            id: id,
-            role: role,
-            name: name,
-            lastName: lastName
-        },
+const createItem = (tableName, params) => {
+    const parameters = {
+        Item: { ...params },
         TableName: tableName
     };
 
@@ -65,7 +60,7 @@ const createItem = (tableName, {id, role, name, lastName}) => {
 };
 
 const updateItem = (tableName, {id, role, name, lastName}) => {
-    var parameters = {
+    const parameters = {
         Key: {
             id:  id
         },
@@ -95,7 +90,7 @@ const updateItem = (tableName, {id, role, name, lastName}) => {
 };
 
 const deleteItem = (tableName, id) => {
-    var parameters = {
+    const parameters = {
         Key: {
             id: id
         },
