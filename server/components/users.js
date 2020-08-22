@@ -10,7 +10,7 @@ users.get('/', (req, res) => {
 });
 
 users.get('/:id', (req, res) => {
-    readItem('users', req.params.id)
+    readItem('users', req.params)
         .then(data => res.send(data))
         .catch(error => res.send(error));
 });
@@ -28,7 +28,7 @@ users.put('/', (req, res) => {
 });
 
 users.delete('/:id', (req, res) => {
-    deleteItem('users', req.params.id)
+    deleteItem('users', req.params)
         .then(data => res.send(data))
         .catch(error => res.send(error));
 });

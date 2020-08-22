@@ -15,11 +15,11 @@ app.use((req, res, next) => {
 
 routes(app);
 
-
+/*
 const port = 8000;
 app.listen(port, () => {
     console.log('Run server');
 });
+*/
 
-
-//module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);

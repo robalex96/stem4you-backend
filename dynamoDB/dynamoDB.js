@@ -19,12 +19,10 @@ const readTable = (tableName) => {
     });
 };
 
-const readItem = (tableName, id) => {
+const readItem = (tableName, param) => {
     const parameters = {
         TableName: tableName,
-        Key: {
-            id: id
-        }
+        Key: { ...param }
     };
 
     return new Promise((resolve, reject) => {
@@ -89,11 +87,9 @@ const updateItem = (tableName, {id, role, name, lastName}) => {
     });
 };
 
-const deleteItem = (tableName, id) => {
+const deleteItem = (tableName, param) => {
     const parameters = {
-        Key: {
-            id: id
-        },
+        Key: { ...param },
         TableName: tableName
     };
 

@@ -9,8 +9,8 @@ activities.get('/', (req, res) => {
         .catch(error => res.send(error));
 });
 
-activities.get('/:id', (req, res) => {
-    readItem('activities', req.params.id)
+activities.get('/:activity', (req, res) => {
+    readItem('activities', req.params)
         .then(data => res.send(data))
         .catch(error => res.send(error));
 });
@@ -27,8 +27,8 @@ activities.put('/', (req, res) => {
         .catch(error => res.send(error));
 });
 
-activities.delete('/:id', (req, res) => {
-    deleteItem('activities', req.params.id)
+activities.delete('/:activity', (req, res) => {
+    deleteItem('activities', req.params)
         .then(data => res.send(data))
         .catch(error => res.send(error));
 });
